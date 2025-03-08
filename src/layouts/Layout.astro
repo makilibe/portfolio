@@ -1,22 +1,46 @@
+---
+import { ClientRouter } from "astro:transitions"
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="https://unpkg.com/@acab/reset.css">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<ClientRouter/>
+		<title>まきりんだWeb</title>
 	</head>
 	<body>
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	--gap: 10px
+}
+
+html {
+  container-type: inline-size;
+}
+main {
+  --_m: max(1em, 50cqw - 600px/2);
+  margin-inline: var(--_m);
+}
+.full-bleed {
+  margin-inline: calc(-1 * var(--_m));
+}
 </style>
